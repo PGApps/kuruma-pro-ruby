@@ -22,6 +22,6 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = '>= 1.9.3'
 
   gem.add_dependency "rest-client", ["~> 2.0.0"]
-  gem.add_development_dependency "rake", ["~> 10.5.0"]
-  gem.add_development_dependency "rspec", ["~> 3.4.0"]
+  gem.add_development_dependency "rake", ["~> 12.3.0"]
+  gem.add_development_dependency "rspec", ["~> 3.7.0"]
 end
