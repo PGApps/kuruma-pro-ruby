@@ -1,1 +1,0 @@
-require 'kuruma-pro/version'
