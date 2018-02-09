@@ -36,7 +36,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            bundle exec rspec --format documentation --out /tmp/test-results/rspec.output.txt
+            bundle exec rspec --no-color --format documentation --out /tmp/test-results/rspec.output.txt
 
       # collect reports
       - store_test_results:
