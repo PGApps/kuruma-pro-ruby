@@ -11,10 +11,12 @@ describe KurumaPro::V1::Response do
       let(:restclient_response) {
         net_http_res = double('net http response', :to_hash => {"Status" => ["200 OK"]}, :code => 200)
         r = double('http request', :user => nil, :password => nil, :url => 'https://127.0.0.1/v1/shops/1/items', :redirection_history => nil)
-        RestClient::Response.create(JSON.generate({data:{item:{id: 1}, meta: {status: 200}}}), net_http_res, r)
+        RestClient::Response.create(JSON.generate({data:{item:{id: 1}}, meta: {status: 200}}), net_http_res, r)
       }
       it do
-        expect(KurumaPro::V1::Response.new(restclient_response).success?).to be true
+        resp = KurumaPro::V1::Response.new(restclient_response)
+        expect(resp.success?).to be true
+        expect(resp.data).to eq({item: {id: 1}})
       end
     end
 
@@ -32,11 +34,5 @@ describe KurumaPro::V1::Response do
       end
     end
 
-  end
-
-  context "#errors" do
-  end
-
-  context "#data" do
   end
 end
