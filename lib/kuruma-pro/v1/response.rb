@@ -1,3 +1,6 @@
+require 'json'
+require 'rest-client'
+
 module KurumaPro
   module V1
     class Response

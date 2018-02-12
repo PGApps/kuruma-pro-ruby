@@ -1,6 +1,4 @@
-require 'bundler'
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+$LOAD_PATH.unshift(File.dirname(__FILE__))
 
-require 'json'
-require 'rest-client'
 require 'kuruma-pro'
-include KurumaPro

@@ -20,7 +20,7 @@ describe KurumaPro::V1::Response do
       end
     end
 
-    context "400 OK" do
+    context "400 Bad Request" do
       let(:restclient_response) {
         net_http_res = double('net http response', :to_hash => {"Status" => ["400 Bad Request"]}, :code => 400)
         r = double('http request', :user => nil, :password => nil, :url => 'https://127.0.0.1/v1/shops/1/items', :redirection_history => nil)
