@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kuruma-pro-sdk (1.0.0)
+    kuruma-pro-client (1.0.0)
       rest-client (~> 2.0.0)
 
 GEM
@@ -42,7 +42,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  kuruma-pro-sdk!
+  kuruma-pro-client!
   rake (~> 12.3.0)
   rspec (~> 3.7.0)
 
