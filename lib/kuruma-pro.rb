@@ -1,4 +1,4 @@
 require 'kuruma-pro/version'
-require 'kuruma-pro/v1/api'
-require 'kuruma-pro/v1/response'
-require 'kuruma-pro/v1/client'
+require 'kuruma-pro/client'
+require 'kuruma-pro/config'
+require 'kuruma-pro/response'

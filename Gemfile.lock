@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kuruma-pro-sdk (0.0.1)
+    kuruma-pro-sdk (1.0.0)
       rest-client (~> 2.0.0)
 
 GEM

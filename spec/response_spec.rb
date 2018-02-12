@@ -1,8 +1,15 @@
-describe KurumaPro::V1::Response do
+describe KurumaPro::Response do
   context "#initialize" do
     it "should raise when response is nil or not RestClient::Response" do
-      expect{ KurumaPro::V1::Response.new(nil) }.to raise_error(StandardError)
-      expect{ KurumaPro::V1::Response.new("") }.to raise_error(StandardError)
+      expect{ KurumaPro::Response.new(nil) }.to raise_error(StandardError)
+      expect{ KurumaPro::Response.new("") }.to raise_error(StandardError)
+    end
+  end
+
+  context "#parse" do
+    it "should raise when response is nil or not RestClient::Response" do
+      expect{ KurumaPro::Response.parse(nil) }.to raise_error(StandardError)
+      expect{ KurumaPro::Response.parse("") }.to raise_error(StandardError)
     end
   end
 
@@ -14,7 +21,7 @@ describe KurumaPro::V1::Response do
         RestClient::Response.create(JSON.generate({data:{item:{id: 1}}, meta: {status: 200}}), net_http_res, r)
       }
       it do
-        resp = KurumaPro::V1::Response.new(restclient_response)
+        resp = KurumaPro::Response.new(restclient_response)
         expect(resp.success?).to be true
         expect(resp.data).to eq({item: {id: 1}})
       end
@@ -27,7 +34,7 @@ describe KurumaPro::V1::Response do
         RestClient::Response.create(JSON.generate({data:nil, meta:{status: 400, error_type: 'GeneralError', error_messages: ["Invalid field1"]}}), net_http_res, r)
       }
       it do
-        resp = KurumaPro::V1::Response.new(restclient_response)
+        resp = KurumaPro::Response.new(restclient_response)
         expect(resp.success?).to be false
         expect(resp.errors[0]).to eq 'Invalid field1'
         expect(resp.error_type).to eq 'GeneralError'
