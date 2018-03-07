@@ -13,7 +13,8 @@ module KurumaPro
         @logger = Logger.new(STDOUT)
       end
 
-      raise "API Key is must not nil" unless @api_key
+      raise "api_key is must not nil" if @api_key.blank?
+      raise "api_endpoint is must not blank" if @api_endpoint.blank?
     end
 
     def update(opts)

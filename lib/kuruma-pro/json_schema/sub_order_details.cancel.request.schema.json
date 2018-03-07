@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-06/schema#","title":"Cancel Sub Order Detail","type":"object","required":["cancel_reason_note"],"properties":{"cancel_reason_note":{"type":"string"}}}

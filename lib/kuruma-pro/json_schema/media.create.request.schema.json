@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-06/schema#","title":"Create Medium","type":"object","required":["medium_type"],"properties":{"medium_type":{"type":"integer","examples":["1","2"]}}}

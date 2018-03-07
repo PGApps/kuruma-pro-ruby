@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-06/schema#","title":"Deliveried Sub Order Delivery","type":"object","required":["tracking_number"],"properties":{"cancel_reason_note":{"type":"tracking_number"}}}

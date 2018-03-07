@@ -1,5 +1,6 @@
 require 'json'
 require 'rest-client'
+require 'json-schema'
 
 require 'kuruma-pro/api/item'
 require 'kuruma-pro/api/medium'
@@ -22,13 +23,13 @@ module KurumaPro
     end
 
     def request_url(url)
-      "#{@config.api_endpoint}/#{@config.api_version}#{url}"
+      "#{@config.api_endpoint}/#{@config.api_version}#{url}" unless url.match(/\Ahttps?:\/\//)
     end
 
     def request(method, url, params, headers={})
       opt = {
         method: method,
-        url: url,
+        url: request_url(url),
         headers: headers,
       }
       opt[:headers][:'x-kuruma-api-key'] ||= "#{@config.api_key}"
@@ -45,8 +46,14 @@ module KurumaPro
         end
       end
 
-      @logger.debug "request. opt=#{opt}"
+      logger.debug "request. method=#{method}, url=#{url}, opt=#{opt}"
       Response.parse(RestClient::Request.execute(opt))
+    end
+
+    def validate!(resource, params)
+      json_path = "#{File.expand_path File.dirname(__FILE__)}/json_schema/#{resource}.schema.json"
+      json_str = File.open(json_path).read
+      JSON::Validator.validate!(json_str, params)
     end
   end
 end

@@ -4,13 +4,13 @@ require 'date'
 require "kuruma-pro/version"
 
 Gem::Specification.new do |gem|
-  gem.name        = "kuruma-pro-client"
+  gem.name        = "kuruma-pro"
   gem.version     = KurumaPro::VERSION
 
   gem.authors     = ["Tatsuya Fukata"]
   gem.email       = ["tatsuya.fukata@gmail.com"]
   gem.summary     = gem.description = %q{kuruma.pro official SDK (Ruby)}
-  gem.homepage    = "https://github.com/PGApps/kuruma-pro-client-ruby"
+  gem.homepage    = "https://github.com/PGApps/kuruma-pro-ruby"
   gem.license     = 'MIT'
 
   gem.files       = `git ls-files`.split($\)
@@ -22,6 +22,7 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = '>= 1.9.3'
 
   gem.add_dependency "rest-client", ["~> 2.0.0"]
+  gem.add_dependency "json-schema", ["~> 2.8.0"]
   gem.add_development_dependency "rake", ["~> 12.3.0"]
   gem.add_development_dependency "rspec", ["~> 3.7.0"]
 end

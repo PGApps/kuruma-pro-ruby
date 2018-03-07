@@ -12,12 +12,14 @@ module KurumaPro
 
       def store_item(params)
         shop_id = params.delete :shop_id
+        validate!('items.create.request', params)
         request(:post, "/shops/#{shop_id}/items", params)
       end
 
       def restore_item(params)
         shop_id = params.delete :shop_id
         item_id = params.delete :item_id
+        validate!('items.create.request', params)
         request(:put, "/shops/#{shop_id}/items/#{item_id}", params)
       end
 
@@ -30,7 +32,9 @@ module KurumaPro
       end
 
       def update_item_stock(shop_id, item_id, new_stock)
-        request(:put, "/shops/#{shop_id}/items/#{item_id}/stock", {stock: new_stock})
+        params = {stock: new_stock}
+        validate!('items.update_stock.request', params)
+        request(:put, "/shops/#{shop_id}/items/#{item_id}/stock", params)
       end
     end
   end

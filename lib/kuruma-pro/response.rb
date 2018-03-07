@@ -29,9 +29,12 @@ module KurumaPro
       @meta[:error_type]
     end
 
-    #FIXME NOT IMPLEMENTED
     def data
       @data
+    end
+
+    def code
+      @raw_response.code
     end
   end
 end
