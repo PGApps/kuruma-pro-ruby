@@ -1,5 +1,4 @@
 # kuruma-pro-ruby
-----
 
 ## Install
 
