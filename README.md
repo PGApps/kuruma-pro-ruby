@@ -1,14 +1,16 @@
-# kuruma-pro-client-ruby
+# kuruma-pro-ruby
 ----
 
 ## Install
 
-*COMMING SOON*
+```
+$ gem install kuruma-pro
+```
 
 ## Usage
 
 ```ruby
-require ''
+require 'kuruma-pro'
 
 client = KurumaPro::Client.new(api_key: "YOUR API KEY")
 result = client.get_items(shop_id: 'YOUR SHOP ID')
