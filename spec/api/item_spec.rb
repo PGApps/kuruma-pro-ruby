@@ -1,5 +1,5 @@
 describe KurumaPro::API::Item do
-  let(:client) { KurumaPro::Client.new({api_key: ""}) }
+  let(:client) { KurumaPro::Client.new({api_key: "hoge"}) }
 
   describe "#store_item" do
     subject { client.store_item(params) }
