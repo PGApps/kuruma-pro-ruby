@@ -36,7 +36,7 @@ module KurumaPro
       opt[:headers][:'Accept'] = 'application/json'
 
       if method == :get
-        opt[:url] = params.blank? ? opt[:url] : "#{opt[:url]}?#{RestClient::Payload::UrlEncoded.new(params).to_s}"
+        opt[:url] = "#{opt[:url]}?#{RestClient::Payload::UrlEncoded.new(params).to_s}" unless params.blank?
       else
         opt[:headers][:'Content-Type'] ||= 'application/json'
         if opt[:headers][:'Content-Type'] == 'application/octet-stream'
